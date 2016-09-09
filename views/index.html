@@ -1,0 +1,69 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: http://mozilla.github.io/nunjucks/ -->
+<!-- jade: http://jade-lang.com/ -->
+<!-- haml: http://haml.info/tutorial.html -->
+<!-- hbs(handlebars): http://handlebarsjs.com/expressions.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Node City Finder</title>
+    <meta name="description" content="A tool to find cities around a certain address in a mile radius.">
+    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>
+        Node City Finder
+      </h1>
+    </header>
+
+    <main>
+        <div class="row">
+          <form class="col s12" action="/cities">
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="Zip" id="zip_code" name="zip" type="text" class="validate" pattern="^\d{5}(?:[-\s]\d{4})?$">
+                <label for="zip_code">Zip Code</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <p for="radius">Radius in miles:<span id="range-viewer"></span></p>
+                <p class="range-field">
+                  <input type="range" id="radius" step="5" name="radius" min="10" max="250" value="10"  onchange="$('#range-viewer').html($(this).val());" />
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                  <button class="btn waves-effect waves-light" type="submit">
+                    Submit
+                  </button>
+              </div>
+            </div>
+          </form>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.1/jquery.inputmask.bundle.min.js"></script>            
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="/client.js"></script>
+  </body>
+</html>
